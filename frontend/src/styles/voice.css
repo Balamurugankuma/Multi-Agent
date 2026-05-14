@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════
+   voice.css  —  Velverse AI
+   Add these rules to your existing Squad.css
+   (or import this file in SquadPage.jsx / main.jsx)
+═══════════════════════════════════════════════════════════ */
+
+/* ── Mic pulse ring animation ────────────────────────── */
+@keyframes vv-ring {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  100% { transform: scale(1.9);  opacity: 0;   }
+}
+
+/* ── Chat input row — updated to fit voice button ─────── */
+.chat-input-row {
+  display:     flex;
+  align-items: flex-end;
+  gap:         8px;
+  padding:     1rem 1.2rem;
+  border-top:  1px solid var(--border);
+  background:  var(--card);
+}
+
+/* Textarea grows with content, max 5 lines */
+.chat-input {
+  flex:         1;
+  resize:       none;
+  min-height:   42px;
+  max-height:   130px;
+  overflow-y:   auto;
+  padding:      0.65rem 0.9rem;
+  background:   var(--surface);
+  border:       1.5px solid var(--border);
+  border-radius:10px;
+  color:        var(--white);
+  font-family:  var(--fd);
+  font-size:    0.9rem;
+  line-height:  1.5;
+  outline:      none;
+  transition:   border-color 0.18s;
+}
+.chat-input:focus      { border-color: var(--accent); }
+.chat-input::placeholder { color: var(--muted); }
+
+/* ── Voice button base (defined inline in VoiceButton.jsx
+      but these supplement for any global overrides) ────── */
+.voice-btn-wrap { position: relative; display: flex; align-items: center; }
+
+/* ── Interim transcript indicator ────────────────────── */
+.voice-interim-badge {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           5px;
+  font-size:     0.72rem;
+  color:         #ef4444;
+  background:    rgba(239,68,68,0.08);
+  border:        1px solid rgba(239,68,68,0.2);
+  border-radius: 6px;
+  padding:       3px 8px;
+  animation:     vv-pulse 1.2s ease-in-out infinite;
+}
+.voice-interim-badge::before {
+  content:    '';
+  width:      6px;
+  height:     6px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation:  vv-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes vv-pulse {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0.4; }
+}
+
+/* ── Language selector in task panel ─────────────────── */
+.voice-lang-select {
+  width:      100%;
+  margin-top: 0.4rem;
+}
+
+/* ── Game page link in sidebar / navbar ──────────────── */
+.nav-game-link {
+  display:     flex;
+  align-items: center;
+  gap:         7px;
+  color:       var(--gold, #c58442);
+  font-weight: 600;
+}
+.nav-game-link:hover { opacity: 0.85; }

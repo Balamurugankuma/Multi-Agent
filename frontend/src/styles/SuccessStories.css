@@ -1,0 +1,28 @@
+.stories-page { padding-top:90px; }
+.stories-hero  { padding:70px 0 50px; text-align:center; }
+.stories-stats {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1rem;
+  background:var(--card); border:1px solid var(--border); border-radius:18px;
+  padding:2rem; margin-bottom:3.5rem;
+}
+.ss-stat { text-align:center; }
+.ss-stat-num { font-family:var(--fd); font-size:2.2rem; font-weight:800; color:var(--accent); margin-bottom:0.2rem; }
+.ss-stat-label { color:var(--muted2); font-size:0.82rem; }
+.stories-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:2rem; }
+.story-full-card { padding:2rem; display:flex; flex-direction:column; gap:1.1rem; }
+.sfc-metric-num   { font-family:var(--fd); font-size:2.5rem; font-weight:800; line-height:1; }
+.sfc-metric-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; opacity:0.7; }
+.sfc-text  { color:var(--muted2); font-size:0.87rem; line-height:1.74; font-style:italic; flex:1; }
+.sfc-squads{ display:flex; gap:0.4rem; flex-wrap:wrap; }
+.sfc-author{ display:flex; align-items:center; gap:0.8rem; }
+.sfc-av {
+  width:42px; height:42px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--fd); font-size:0.82rem; font-weight:800; color:#000;
+}
+.sfc-name  { font-weight:700; font-size:0.86rem; }
+.sfc-role  { color:var(--muted); font-size:0.76rem; }
+.sfc-stars { margin-left:auto; color:var(--gold); font-size:0.8rem; letter-spacing:1px; }
+
+@media (max-width:960px)  { .stories-full-grid { grid-template-columns:1fr 1fr; } .stories-stats { grid-template-columns:1fr 1fr; } }
+@media (max-width:580px)  { .stories-full-grid { grid-template-columns:1fr; } .stories-stats { grid-template-columns:1fr 1fr; } }

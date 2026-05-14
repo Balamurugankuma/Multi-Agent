@@ -1,0 +1,171 @@
+.billing-page { padding-top:90px; }
+.billing-layout { display:grid; grid-template-columns:1fr 380px; gap:2rem; align-items:start; }
+.billing-main { display:flex; flex-direction:column; gap:1.5rem; }
+.billing-sidebar { display:flex; flex-direction:column; gap:1.5rem; position:sticky; top:90px; }
+
+/* Section cards */
+.b-card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:1.8rem; }
+.b-card-title {
+  font-family:var(--fd); font-size:1rem; font-weight:800; margin-bottom:1.3rem;
+  display:flex; align-items:center; gap:0.6rem;
+}
+.b-card-title i { color:var(--accent); }
+
+/* Current plan banner */
+.billing-plan-banner {
+  background:linear-gradient(135deg,rgba(0,245,196,0.08),rgba(124,92,252,0.08));
+  border:1px solid rgba(0,245,196,0.18); border-radius:18px; padding:1.8rem;
+  display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+}
+.bpb-icon {
+  width:56px; height:56px; border-radius:14px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem;
+}
+.bpb-info { flex:1; }
+.bpb-name { font-family:var(--fd); font-size:1.3rem; font-weight:800; margin-bottom:0.2rem; }
+.bpb-sub  { color:var(--muted2); font-size:0.84rem; }
+.bpb-price { font-family:var(--fd); font-size:2rem; font-weight:800; color:var(--accent); }
+
+/* Payment method */
+.pm-tabs { display:flex; gap:0.5rem; margin-bottom:1.3rem; }
+.pm-tab {
+  display:flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem;
+  background:rgba(255,255,255,0.04); border:1px solid var(--border);
+  border-radius:8px; font-size:0.82rem; font-weight:600; color:var(--muted2); transition:all 0.2s;
+}
+.pm-tab.active { border-color:var(--accent); color:var(--accent); background:rgba(0,245,196,0.07); }
+.card-preview {
+  background:linear-gradient(135deg,#1a1f44,#2d1f55);
+  border-radius:14px; padding:1.5rem; margin-bottom:1.2rem;
+  min-height:160px; position:relative; overflow:hidden;
+}
+.card-preview::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:160px; height:160px; border-radius:50%;
+  background:rgba(255,255,255,0.05);
+}
+.card-chip { width:36px; height:28px; background:linear-gradient(135deg,#d4a017,#f5c842); border-radius:5px; margin-bottom:1.2rem; }
+.card-number { font-family:var(--fm); font-size:1.1rem; letter-spacing:0.18em; margin-bottom:1rem; }
+.card-footer { display:flex; justify-content:space-between; align-items:flex-end; }
+.card-footer-label { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.5); margin-bottom:0.2rem; }
+.card-footer-val { font-family:var(--fm); font-size:0.88rem; }
+.card-brand { font-family:var(--fd); font-size:1.2rem; font-weight:800; color:rgba(255,255,255,0.8); }
+.form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+
+/* History table */
+.bh-table { width:100%; border-collapse:collapse; }
+.bh-table th { padding:0.6rem 0.8rem; font-family:var(--fm); font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); text-align:left; }
+.bh-table td { padding:0.85rem 0.8rem; font-size:0.83rem; color:var(--muted2); border-bottom:1px solid rgba(255,255,255,0.04); }
+.bh-table td:first-child { color:var(--white); font-weight:500; }
+.bh-table tr:last-child td { border-bottom:none; }
+.download-btn {
+  background:rgba(255,255,255,0.04); border:1px solid var(--border);
+  border-radius:6px; padding:0.2rem 0.6rem; font-size:0.72rem; color:var(--muted2); transition:0.2s;
+}
+.download-btn:hover { color:var(--accent); border-color:rgba(0,245,196,0.3); }
+
+/* Summary */
+.summary-row { display:flex; justify-content:space-between; padding:0.65rem 0; font-size:0.85rem; border-bottom:1px solid rgba(255,255,255,0.05); }
+.summary-row:last-child { border-bottom:none; }
+.summary-row.total { font-family:var(--fd); font-weight:800; font-size:1rem; padding-top:0.9rem; color:var(--white); }
+.summary-row span:last-child { font-weight:600; }
+
+.pay-btn {
+  width:100%; padding:1rem; background:var(--accent); color:#000;
+  font-family:var(--fd); font-size:1rem; font-weight:800; border:none;
+  border-radius:10px; transition:all 0.25s; margin-top:1rem;
+  box-shadow:0 0 28px rgba(0,245,196,0.3); animation:glowPulse 2.5s ease-in-out infinite alternate;
+}
+.pay-btn:hover { transform:translateY(-2px); box-shadow:0 0 44px rgba(0,245,196,0.55); }
+.secure-note { text-align:center; color:var(--muted); font-size:0.75rem; margin-top:0.6rem; }
+.secure-note i { color:var(--accent); margin-right:4px; }
+
+/* Plan options */
+/* Billing period toggle */
+.billing-period-toggle {
+  display:flex; gap:0.4rem; margin-bottom:1rem;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:3px;
+}
+.bpt-opt {
+  flex:1; padding:0.45rem 0.7rem; border-radius:6px;
+  font-size:0.82rem; font-weight:600; color:var(--muted2);
+  transition:all 0.2s; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.bpt-opt.active { background:var(--accent); color:#fff; }
+.bpt-save { background:rgba(255,255,255,0.18); border-radius:100px; padding:0.1rem 0.4rem; font-size:0.63rem; }
+.plan-options { display:flex; flex-direction:column; gap:0.7rem; }
+.plan-opt {
+  display:flex; align-items:center; gap:1rem;
+  padding:1rem 1.2rem; border:1px solid var(--border);
+  border-radius:12px; cursor:pointer; transition:all 0.2s; background:rgba(255,255,255,0.02);
+}
+.plan-opt.selected { border-color:rgba(0,245,196,0.35); background:rgba(0,245,196,0.05); }
+.plan-opt-radio {
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid var(--muted); flex-shrink:0; transition:all 0.2s;
+  display:flex; align-items:center; justify-content:center;
+}
+.plan-opt.selected .plan-opt-radio { border-color:var(--accent); background:var(--accent); }
+.plan-opt.selected .plan-opt-radio::after { content:''; width:7px; height:7px; background:#000; border-radius:50%; }
+.plan-opt-name  { font-weight:700; font-size:0.88rem; }
+.plan-opt-price { color:var(--accent); font-family:var(--fd); font-weight:800; }
+.plan-opt-desc  { color:var(--muted2); font-size:0.76rem; }
+
+@media (max-width:960px) { .billing-layout { grid-template-columns:1fr; } .billing-sidebar { position:static; } }
+@media (max-width:580px) { .billing-plan-banner { flex-direction:column; align-items:flex-start; } .form-row-2 { grid-template-columns:1fr; } .pm-tabs { flex-wrap:wrap; } }
+
+/* ════ NEW BILLING v2 CLASSES ════ */
+.billing-page   { min-height:100vh; background:var(--bg); padding:6rem 5% 4rem; }
+.billing-inner  { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 340px; gap:2rem; align-items:start; }
+.billing-title  { font-size:1.8rem; font-weight:800; color:var(--white); letter-spacing:-0.03em; margin-bottom:1.5rem; }
+.billing-period-toggle { display:flex; gap:0; margin:0 0 1.2rem; background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+.bpt-opt {
+  flex:1; padding:0.65rem 1rem; font-size:0.875rem; font-weight:600; color:var(--muted2);
+  background:transparent; border:none; cursor:pointer; transition:all 0.18s; font-family:var(--fd);
+}
+.bpt-opt.active { background:var(--accent); color:#fff; }
+.bpt-save { font-size:0.65rem; background:rgba(34,197,94,0.15); color:#22c55e; padding:0.1rem 0.4rem; border-radius:4px; margin-left:0.4rem; }
+.billing-plans { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:1.5rem; }
+.billing-plan-card {
+  display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem;
+  background:var(--card); border:1px solid var(--border); border-radius:12px; cursor:pointer; transition:all 0.18s;
+}
+.billing-plan-card:hover   { border-color:var(--border2); }
+.billing-plan-card.selected{ border-color:var(--accent); background:var(--accent-bg); }
+.bpc-radio {
+  width:18px; height:18px; border:2px solid var(--border2); border-radius:50%;
+  flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:border-color 0.15s;
+}
+.billing-plan-card.selected .bpc-radio { border-color:var(--accent); }
+.bpc-dot  { width:9px; height:9px; background:var(--accent); border-radius:50%; }
+.bpc-name { font-size:0.95rem; font-weight:700; color:var(--white); }
+.bpc-price{ font-size:0.85rem; color:var(--accent); font-weight:600; margin-top:2px; }
+.billing-msg { padding:0.75rem 1rem; border-radius:10px; font-size:0.88rem; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); color:#ef4444; margin-bottom:0.8rem; }
+.billing-msg.success { background:rgba(34,197,94,0.08); border-color:rgba(34,197,94,0.25); color:#22c55e; }
+.billing-pay-btn { width:100%; justify-content:center; padding:0.92rem !important; font-size:1rem !important; margin-top:0.5rem; }
+.billing-history { margin-top:2rem; }
+.billing-history h3 { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:0.8rem; }
+.billing-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+.billing-table th { text-align:left; padding:0.6rem 0.8rem; background:var(--card); border:1px solid var(--border); color:var(--muted2); font-weight:600; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
+.billing-table td { padding:0.7rem 0.8rem; border:1px solid var(--border); color:var(--white); }
+.billing-badge { padding:0.2rem 0.55rem; border-radius:5px; font-size:0.75rem; font-weight:600; text-transform:capitalize; }
+.badge-paid    { background:rgba(34,197,94,0.12); color:#22c55e; }
+.badge-created { background:rgba(251,191,36,0.12); color:#fbbf24; }
+.badge-failed  { background:rgba(239,68,68,0.12);  color:#ef4444; }
+.billing-right  { position:sticky; top:6rem; }
+.billing-summary { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.5rem; margin-bottom:1rem; }
+.billing-summary h3 { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:1rem; }
+.bs-row { display:flex; justify-content:space-between; font-size:0.875rem; padding:0.45rem 0; color:var(--muted2); }
+.bs-row span:last-child { color:var(--white); font-weight:500; }
+.bs-divider { height:1px; background:var(--border); margin:0.8rem 0; }
+.bs-total { font-size:1rem; font-weight:700; }
+.bs-total span { color:var(--accent) !important; }
+.bs-secure { margin-top:1rem; font-size:0.78rem; color:var(--muted); display:flex; align-items:center; gap:0.4rem; justify-content:center; }
+.bs-user-info { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; display:flex; align-items:center; gap:0.8rem; }
+.bs-avatar { width:36px; height:36px; background:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:0.95rem; flex-shrink:0; }
+.bs-name  { font-size:0.9rem; font-weight:700; color:var(--white); }
+.bs-email { font-size:0.78rem; color:var(--muted); }
+@media (max-width:720px) { .billing-inner { grid-template-columns:1fr; } .billing-right { position:static; } }

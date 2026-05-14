@@ -1,0 +1,130 @@
+/* ════════════════════════════════════════════════
+   DASHBOARD — Complete World-Class Rewrite
+   Works with the new Dashboard.jsx
+   ════════════════════════════════════════════════ */
+
+.dashboard { display:flex; min-height:100vh; background:var(--bg); font-family:var(--fd); }
+
+/* ── Sidebar ─────────────────────────────────── */
+.dash-sidebar {
+  width:240px; flex-shrink:0; background:var(--card);
+  border-right:1px solid var(--border);
+  padding:1.4rem 1rem; display:flex; flex-direction:column;
+  position:fixed; top:0; left:0; height:100vh; z-index:100; overflow-y:auto;
+}
+.dash-logo {
+  display:flex; align-items:center; gap:10px;
+  font-size:1rem; font-weight:800; letter-spacing:-0.02em;
+  color:var(--white); text-decoration:none;
+  margin-bottom:2rem; padding-bottom:1.2rem; border-bottom:1px solid var(--border);
+}
+.dash-logo-mark {
+  width:30px; height:30px; background:var(--accent); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:0.82rem; flex-shrink:0;
+}
+.dash-nav { display:flex; flex-direction:column; gap:0.2rem; flex:1; }
+.dash-nav-link {
+  display:flex; align-items:center; gap:0.65rem;
+  padding:0.62rem 0.75rem; border-radius:8px;
+  color:var(--muted2); text-decoration:none;
+  font-size:0.875rem; font-weight:500; transition:all 0.18s;
+}
+.dash-nav-link:hover { background:var(--accent-bg); color:var(--white); }
+.dash-nav-link i { width:16px; text-align:center; font-size:0.85rem; }
+.dash-user-chip {
+  display:flex; align-items:center; gap:0.7rem;
+  padding:0.8rem; background:rgba(255,255,255,0.04);
+  border:1px solid var(--border); border-radius:10px;
+  margin-top:auto; margin-bottom:0.6rem;
+}
+.dash-avatar {
+  width:34px; height:34px; background:var(--accent); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.95rem; font-weight:700; color:#fff; flex-shrink:0;
+}
+.dash-uname { font-size:0.875rem; font-weight:600; color:var(--white); line-height:1.2; }
+.dash-plan  { font-size:0.72rem; color:var(--accent); font-weight:500; margin-top:1px; }
+.dash-logout-btn {
+  width:100%; padding:0.65rem;
+  background:transparent; border:1px solid var(--border); border-radius:8px;
+  color:var(--muted2); font-size:0.85rem; font-family:var(--fd); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all 0.18s;
+}
+.dash-logout-btn:hover { background:rgba(239,68,68,0.08); border-color:rgba(239,68,68,0.3); color:#ef4444; }
+
+/* ── Main ────────────────────────────────────── */
+.dash-main { margin-left:240px; flex:1; padding:2rem 2rem 3rem; overflow-y:auto; }
+.dash-topbar {
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem;
+}
+.dash-greeting { font-size:1.5rem; font-weight:800; color:var(--white); letter-spacing:-0.03em; }
+.dash-upgrade-btn { font-size:0.875rem; padding:0.6rem 1.2rem; }
+.dash-section-title {
+  font-size:1rem; font-weight:700; color:var(--white);
+  margin:1.8rem 0 0.9rem; letter-spacing:-0.01em;
+}
+
+/* ── Stats ───────────────────────────────────── */
+.dash-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.dash-stat-card {
+  background:var(--card); border:1px solid var(--border); border-radius:14px;
+  padding:1.2rem; display:flex; flex-direction:column; gap:0.5rem; transition:border-color 0.18s;
+}
+.dash-stat-card:hover { border-color:var(--border2); }
+.dsc-icon {
+  width:38px; height:38px; border-radius:9px;
+  display:flex; align-items:center; justify-content:center; font-size:1rem;
+}
+.dsc-value { font-size:1.55rem; font-weight:800; color:var(--white); letter-spacing:-0.03em; line-height:1; }
+.dsc-label { font-size:0.78rem; color:var(--muted); font-weight:500; }
+
+/* ── Squad Cards ─────────────────────────────── */
+.dash-squads { display:grid; grid-template-columns:repeat(5,1fr); gap:0.9rem; }
+.dash-squad-card {
+  background:var(--card); border:1px solid var(--border); border-radius:14px;
+  padding:1.2rem 1rem; display:flex; flex-direction:column;
+  align-items:center; gap:0.5rem; text-decoration:none;
+  text-align:center; transition:all 0.2s;
+}
+.dash-squad-card:hover {
+  border-color:var(--accent); transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(99,102,241,0.12);
+}
+.dsc-squad-icon {
+  width:44px; height:44px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+}
+.dsc-squad-name { font-size:0.82rem; font-weight:700; color:var(--white); line-height:1.2; }
+.dsc-squad-status { display:flex; align-items:center; gap:0.3rem; font-size:0.72rem; font-weight:500; }
+.dsc-squad-status.online { color:#22c55e; }
+.dsc-squad-status.sim    { color:var(--muted); }
+.dsc-squad-status .dot   { width:6px; height:6px; border-radius:50%; background:currentColor; }
+.dsc-squad-cta { font-size:0.75rem; color:var(--accent); font-weight:600; margin-top:0.2rem; }
+
+/* ── Activity ────────────────────────────────── */
+.dash-activity { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+.dash-activity-row {
+  display:grid; grid-template-columns:110px 1fr 140px;
+  gap:1rem; padding:0.8rem 1.2rem; border-bottom:1px solid var(--border);
+  align-items:center; transition:background 0.15s;
+}
+.dash-activity-row:last-child { border-bottom:none; }
+.dash-activity-row:hover { background:rgba(255,255,255,0.02); }
+.dar-agent {
+  font-size:0.75rem; font-weight:700; color:var(--accent); text-transform:capitalize;
+  background:var(--accent-bg); padding:0.2rem 0.5rem; border-radius:5px; width:fit-content;
+}
+.dar-msg   { font-size:0.85rem; color:var(--muted2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.dar-time  { font-size:0.75rem; color:var(--muted); text-align:right; font-family:var(--fm); }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width:1100px) { .dash-squads { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:860px)  {
+  .dash-sidebar { display:none; }
+  .dash-main    { margin-left:0; padding:1.2rem; }
+  .dash-stats   { grid-template-columns:repeat(2,1fr); }
+  .dash-squads  { grid-template-columns:repeat(2,1fr); }
+  .dash-activity-row { grid-template-columns:90px 1fr; }
+  .dar-time { display:none; }
+}

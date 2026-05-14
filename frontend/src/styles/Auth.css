@@ -1,0 +1,240 @@
+/* ================================================
+   VELVERSE AI — Auth Pages  (Login / Sign Up)
+   Layout: full-viewport, perfectly centred
+   ================================================ */
+
+/* ── Page shell ─────────────────────────────────── */
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ── Background glows ───────────────────────────── */
+.auth-bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(99,102,241,0.11), transparent),
+    radial-gradient(ellipse 55% 45% at 80% 75%, rgba(99,102,241,0.07), transparent);
+}
+
+/* ── Card ────────────────────────────────────────── */
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  padding: 2.8rem 2.6rem;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px rgba(99,102,241,0.08),
+    0 32px 80px rgba(0,0,0,0.55),
+    0 8px 24px rgba(0,0,0,0.3);
+  animation: fadeUp 0.48s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* Indigo top-edge shimmer */
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.6), transparent);
+  border-radius: 0 0 8px 8px;
+}
+
+/* ── Brand logo ─────────────────────────────────── */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fd);
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-decoration: none;
+  margin-bottom: 1.8rem;
+  width: fit-content;
+}
+.auth-logo-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--accent);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(99,102,241,0.45);
+}
+
+/* ── Firebase / demo notice ─────────────────────── */
+.auth-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  background: rgba(99,102,241,0.07);
+  border: 1px solid rgba(99,102,241,0.22);
+  border-radius: 10px;
+  padding: 0.68rem 0.9rem;
+  font-size: 0.79rem;
+  color: var(--muted2);
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+}
+.auth-notice i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
+.auth-notice code {
+  font-family: var(--fm);
+  font-size: 0.72rem;
+  color: var(--accent-h);
+  background: rgba(99,102,241,0.12);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+}
+
+/* ── Error banner ───────────────────────────────── */
+.auth-error {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 0.83rem;
+  color: var(--error);
+  margin-bottom: 1.2rem;
+}
+
+/* ── OAuth buttons ──────────────────────────────── */
+.social-row { display: flex; gap: 0.65rem; }
+.social-btn-big {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.76rem 0.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 11px;
+  color: var(--white);
+  font-family: var(--fd);
+  font-size: 0.86rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.social-btn-big:hover:not(:disabled) {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.social-btn-big:disabled { opacity: 0.45; cursor: not-allowed; }
+.social-btn-big.github-btn { background: rgba(22,27,34,0.8); }
+
+/* ── Divider ────────────────────────────────────── */
+.auth-or {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.15rem 0;
+  font-size: 0.77rem;
+  color: var(--muted);
+}
+.auth-or::before, .auth-or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Tabs ───────────────────────────────────────── */
+.auth-tabs {
+  display: flex;
+  gap: 3px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+.auth-tab {
+  flex: 1;
+  padding: 0.58rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--muted2);
+  font-family: var(--fd);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.auth-tab:hover:not(.active) { color: var(--white); background: rgba(255,255,255,0.05); }
+.auth-tab.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.4);
+}
+
+/* ── Form layout ────────────────────────────────── */
+.auth-form { display: flex; flex-direction: column; }
+.auth-field { margin-bottom: 1rem; }
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.auth-forgot { text-align: right; margin-bottom: 0.45rem; }
+.auth-forgot a { font-size: 0.8rem; color: var(--accent); text-decoration: none; }
+.auth-forgot a:hover { text-decoration: underline; }
+
+/* ── Submit ─────────────────────────────────────── */
+.auth-submit {
+  width: 100%;
+  justify-content: center !important;
+  padding: 0.88rem 1rem !important;
+  font-size: 0.94rem !important;
+  margin-top: 0.4rem;
+  border-radius: 11px !important;
+}
+.auth-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+/* ── Footer ─────────────────────────────────────── */
+.auth-terms {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.77rem;
+  margin-top: 1rem;
+  line-height: 1.65;
+}
+.auth-terms a { color: var(--accent); text-decoration: none; }
+.auth-terms a:hover { text-decoration: underline; }
+
+/* ── Mobile ─────────────────────────────────────── */
+@media (max-width: 520px) {
+  .auth-card { padding: 2rem 1.4rem; border-radius: 18px; }
+  .auth-row  { grid-template-columns: 1fr; }
+  .social-btn-big { font-size: 0.8rem; padding: 0.72rem 0.4rem; }
+}
